@@ -1,0 +1,15 @@
+def sorting(char):
+    multiplier = 0
+    odds = "13579"
+    if char.islower():
+        multiplier = 1
+    elif char.isupper():
+        multiplier = 10 ** 5
+    elif char in odds:
+        multiplier = 10 ** 10
+    else:
+        multiplier = 10 ** 18
+    return ord(char) * multiplier
+
+s = input()
+print(*sorted(s, key = sorting), sep='')
