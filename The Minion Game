@@ -1,0 +1,28 @@
+def minion_game(string):
+    length = len(string)
+    scores= [0 , 0] #[Stuart(consonants), Kevin(vowels)]
+    vowels = ['A' , 'E' , 'O' , 'U' , 'I']
+
+    for letter in range(length):
+        #find number of words made using string input
+        words_made = length - letter
+
+        #Add to Kevin score if vowel
+        if string[letter] in vowels:
+            scores[1] += words_made
+
+        #Add to Stuart score if consonant (not vowel)
+        else:
+            scores[0] += words_made
+
+    #Check if Stuart won
+    if scores[0] > scores[1]: 
+        print('Stuart', scores[0])
+
+    #Check if Kevin won
+    elif scores[1] > scores[0]:
+        print('Kevin', scores[1])
+        
+    #Check if neither player won (draw)
+    else:
+        print('Draw')
